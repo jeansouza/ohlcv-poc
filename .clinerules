@@ -1,0 +1,65 @@
+# OHLCV-POC Project Rules
+
+## Project Patterns
+
+### Code Style
+- Use TypeScript for all code
+- Follow ESLint and Prettier configurations
+- Use async/await for asynchronous operations
+- Prefer functional programming patterns where appropriate
+- Use meaningful variable and function names that reflect domain concepts
+
+### Project Structure
+- `/src` - Source code
+  - `/src/models` - Data models and interfaces
+  - `/src/services` - Business logic and services
+  - `/src/repositories` - Data access layer
+  - `/src/api` - API endpoints and controllers
+  - `/src/utils` - Utility functions and helpers
+- `/tests` - Test files
+  - `/tests/unit` - Unit tests
+  - `/tests/integration` - Integration tests
+  - `/tests/e2e` - End-to-end tests
+  - `/tests/performance` - Performance tests
+- `/docs` - Documentation
+- `/scripts` - Utility scripts
+
+### Testing Patterns
+- Use Jest for all tests
+- Follow AAA pattern (Arrange, Act, Assert)
+- Use descriptive test names that explain the behavior being tested
+- Aim for 100% test coverage
+- Use mocks and stubs for external dependencies
+- Use TestContainers for integration tests with InfluxDB
+
+### Documentation Patterns
+- Use JSDoc comments for all public functions and classes
+- Include examples in documentation where helpful
+- Document performance characteristics and trade-offs
+- Keep README up-to-date with setup and usage instructions
+
+## Implementation Guidelines
+
+### Trade Data Generation
+- Use a configurable set of stock symbols (default to S&P 500 components)
+- Generate realistic price movements (random walk with mean reversion)
+- Distribute trades throughout trading hours (9:30 AM - 4:00 PM ET)
+- Use realistic trade sizes based on stock liquidity
+
+### InfluxDB Best Practices
+- Use batch writing for optimal performance
+- Structure data with appropriate tags and fields
+- Use time precision appropriate for trade data (milliseconds)
+- Follow InfluxDB naming conventions
+- Implement proper error handling and retries
+
+### Performance Optimization
+- Monitor memory usage during batch processing
+- Use streams for processing large datasets
+- Implement backpressure handling
+- Log performance metrics for analysis
+- Tune batch sizes based on empirical testing
+
+## Learning Notes
+- This is a new project, so learning notes will be added as we progress
+- Initial focus is on setting up the project structure and implementing core functionality
